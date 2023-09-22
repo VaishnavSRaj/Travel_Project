@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            background-image: url('https://images.ctfassets.net/co0pvta7hzrh/1HOajBVHsh7xunfUnjpDNE/c94d271e8f90a6bf6016fc1d275d7a74/e_commerce_registration_form_template_thumb.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            padding-right: 40px;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register Page</h1>
+    <form action="register" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="text" name="first_name" placeholder="First Name"><br>
+        <input type="text" name="last_name" placeholder="Last Name"><br>
+        <input type="email" name="email" placeholder="Email"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="password" name="confirm_password" placeholder="Confirm Password"><br>
+        <input type="submit">
+    </form>
+
+    {% for msg in messages %}
+        <h2>{{msg}}</h2>
+    {% endfor %}
+</body>
+</html>
